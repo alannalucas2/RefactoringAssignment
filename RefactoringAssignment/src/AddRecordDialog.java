@@ -113,7 +113,7 @@ public class AddRecordDialog extends JDialog implements ActionListener {
 	}
 
 	// add record to file
-	public void addRecord() {
+	private void addRecord() {
 		boolean fullTime = false;
 		Employee theEmployee;
 
@@ -177,7 +177,7 @@ public class AddRecordDialog extends JDialog implements ActionListener {
 	}
 
 	//set background to white
-	public void setToWhite() {
+	private void setToWhite() {
 		ppsField.setBackground(Color.WHITE);
 		surnameField.setBackground(Color.WHITE);
 		firstNameField.setBackground(Color.WHITE);
