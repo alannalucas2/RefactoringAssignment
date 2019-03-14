@@ -23,10 +23,12 @@ import javax.swing.JTextField;
 import net.miginfocom.swing.MigLayout;
 
 public class AddRecordDialog extends JDialog implements ActionListener {
-	JTextField idField, ppsField, surnameField, firstNameField, salaryField;
-	JComboBox<String> genderCombo, departmentCombo, fullTimeCombo;
-	JButton save, cancel;
-	EmployeeDetails parent;
+	private JTextField idField, ppsField, surnameField, firstNameField, salaryField;
+	private JComboBox<String> genderCombo, departmentCombo, fullTimeCombo;
+	private JButton save, cancel;
+	private EmployeeDetails parent;
+	
+	
 	// constructor for add record dialog
 	public AddRecordDialog(EmployeeDetails parent) {
 		setTitle("Add Record");
