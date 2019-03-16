@@ -370,7 +370,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 			currentByteStart = application.getFirst();
 			// assign current Employee to first record in file
 			currentEmployee = application.readRecords(currentByteStart);
-			application.closeReadFile();
+			application.closeFile();
 
 			if (currentEmployee.getEmployeeId() == 0)
 				nextRecord();
@@ -391,7 +391,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 				currentByteStart = application.getPrevious(currentByteStart);
 				currentEmployee = application.readRecords(currentByteStart);
 			} 
-			application.closeReadFile();
+			application.closeFile();
 		}
 	}
 
@@ -406,7 +406,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 				currentByteStart = application.getNext(currentByteStart);
 				currentEmployee = application.readRecords(currentByteStart);
 			} 
-			application.closeReadFile();// close file for reading
+			application.closeFile();// close file for reading
 		} 
 	}
 
@@ -417,7 +417,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 			application.openReadFile(file.getAbsolutePath());
 			currentByteStart = application.getLast();
 			currentEmployee = application.readRecords(currentByteStart);
-			application.closeReadFile();
+			application.closeFile();
 			if (currentEmployee.getEmployeeId() == 0)
 				previousRecord();
 		}
@@ -532,7 +532,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		application.openWriteFile(file.getAbsolutePath());
 
 		currentByteStart = application.addRecords(newEmployee);
-		application.closeWriteFile();
+		application.closeFile();
 	}
 
 	// delete (make inactive - empty) record from file
@@ -546,7 +546,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 				application.openWriteFile(file.getAbsolutePath());
 				// delete (make inactive - empty) record in file proper position
 				application.deleteRecords(currentByteStart);
-				application.closeWriteFile();// close file for writing
+				application.closeFile();// close file for writing
 				// if any active record in file display next record
 				if (isSomeoneToDisplay()) {
 					nextRecord();
@@ -609,7 +609,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		application.openReadFile(file.getAbsolutePath());
 		// check if any of records in file is active - ID is not 0
 		someoneToDisplay = application.isSomeoneToDisplay();
-		application.closeReadFile();// close file for reading
+		application.closeFile();// close file for reading
 		// if no records found clear all text fields and display message
 		if (!someoneToDisplay) {
 			currentEmployee = null;
@@ -640,7 +640,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 				application.openReadFile(file.getAbsolutePath());
 				// look in file is PPS already in use
 				ppsExist = application.isPpsExist(pps, currentByte);
-				application.closeReadFile();// close file for reading
+				application.closeFile();// close file for reading
 			} 
 			else
 				ppsExist = true;
@@ -799,7 +799,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 			application.openReadFile(file.getAbsolutePath());
 			firstRecord();// look for first record
 			displayRecords(currentEmployee);
-			application.closeReadFile();// close file for reading
+			application.closeFile();// close file for reading
 		} 
 	}
 
@@ -825,7 +825,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 						// write changes to file for corresponding Employee
 						// record
 						application.changeRecords(currentEmployee, currentByteStart);
-						application.closeWriteFile();// close file for writing
+						application.closeFile();// close file for writing
 					} 
 				}
 			}
@@ -847,7 +847,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 			currentEmployee = getChangedDetails();
 			// write changes to file for corresponding Employee record
 			application.changeRecords(currentEmployee, currentByteStart);
-			application.closeWriteFile();
+			application.closeFile();
 			changesMade = false;
 		} 
 		displayRecords(currentEmployee);
