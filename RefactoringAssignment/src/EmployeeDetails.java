@@ -1029,12 +1029,11 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 		createRandomFile();// create random file name
 		JPanel dialog = new JPanel(new MigLayout());
 		
-		String gpx = "growx, pushx";
-		String gpxWrap = "growx, pushx, wrap";
-	
 
 		setJMenuBar(menuBar());
-		dialog.add(searchPanel(), "width 400:400:400" + gpx);
+		
+		
+		dialog.add(searchPanel(), "width 400:400:400, growx, pushx");
 
 		dialog.add(navigPanel(), "width 150:150:150, wrap");
 		
